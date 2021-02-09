@@ -15,7 +15,7 @@ import requests
 class MemeAPIView(APIView):
 
     def get(self,request):
-        memes=meme.objects.all().order_by('-id')[:5]
+        memes=meme.objects.all().order_by('-id')[:100]
         serializer=MemeSerializer(memes,many=True)
         return Response(serializer.data)
     
